@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var NumbersCollectoin_1 = require("./NumbersCollectoin");
+var LinkedList_1 = require("./LinkedList");
+var numbers = new NumbersCollectoin_1.NumbersCollectoin([10, 3, -5, 1000]);
+var linkedList = new LinkedList_1.LinkedList();
+linkedList.add(2);
+linkedList.add(-19);
+linkedList.add(342);
+linkedList.add(8);
+linkedList.print();
+linkedList.sort();
+linkedList.print();
+numbers.sort();
+console.log(numbers.data);
