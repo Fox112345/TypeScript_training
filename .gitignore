@@ -1,6 +1,6 @@
-/05-stats/node_modules/
-/04-sort/node_modules/
-/03-maps/node_modules/
-/01-fetchjson/node_modules/
 /.vscode/
+/01-fetchjson/node_modules/
 /03-maps/.cache/
+/03-maps/node_modules/
+/04-sort/node_modules/
+/05-stats/node_modules/
