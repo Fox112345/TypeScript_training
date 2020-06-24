@@ -1,4 +1,5 @@
 /.vscode/
+/.idea/
 /01-fetchjson/node_modules/
 /03-maps/.cache/
 /03-maps/node_modules/
