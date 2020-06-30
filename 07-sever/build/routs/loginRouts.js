@@ -1,0 +1,39 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+var express_1 = require("express");
+function requiredAuth(req, res, next) {
+    var _a;
+    if ((_a = req.session) === null || _a === void 0 ? void 0 : _a.loggedIn)
+        return next();
+    return res.status(403).send('Not permited');
+}
+var router = express_1.Router();
+exports.router = router;
+router.get('/login', function (req, res) {
+    res.send("\n    <form method=\"post\">\n        <div>\n            <label>Email</label>\n            <input name=\"email\">\n        </div>\n        <div>\n            <label>Pass</label>\n            <input name=\"pass\" type=\"password\">\n        </div>\n        <button>Submit</button>\n    </form>\n    ");
+});
+router.post('/login', function (req, res) {
+    var _a = req.body, email = _a.email, pass = _a.pass;
+    if (email === '12' && pass === '12') {
+        req.session = { loggedIn: true };
+        res.redirect('/');
+    }
+    else {
+        res.send("Invalid");
+    }
+});
+router.get('/', function (req, res) {
+    var _a;
+    if ((_a = req.session) === null || _a === void 0 ? void 0 : _a.loggedIn)
+        res.send("\n        <div>\n            <div>You are logged in</div>\n            <a href=\"/logout\">Logout</a> \n        </div>\n    ");
+    else
+        res.send("\n        <div>\n            <div>You are not logged in</div>\n            <a href=\"/login\">Login</a>\n        </div>\n    ");
+});
+router.get('/logout', function (req, res) {
+    req.session = null;
+    res.redirect('/');
+});
+router.get('/protected', requiredAuth, function (req, res) {
+    res.send("\n    Welcome!\n    ");
+});
