@@ -19,6 +19,6 @@
     "start:run": "nodemon build/index.js",
     "start": "concurrently npm:start:*"
   },
-  "author": "", 
+  "author": "",
   "license": "ISC"
 }

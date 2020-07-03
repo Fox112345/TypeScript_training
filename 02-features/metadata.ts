@@ -18,3 +18,5 @@ function markFunction(secretInfo: string) {
 const secret = Reflect.getMetadata("secret", Plane.prototype, "fly");
 
 console.log(secret);
+
+
